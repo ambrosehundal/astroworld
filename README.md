@@ -1,2 +1,0 @@
-# astroworld
-Everything astronomy
