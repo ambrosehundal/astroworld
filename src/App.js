@@ -17,6 +17,12 @@ class App extends Component {
     this.setState({date: dateFromInput})
     
   };
+
+  componentDidMount(){
+    fetch(`https://api.nasa.gov/planetary/apod?api_key=`)
+    .then(response => response.json())
+    .then(json => this.setState({ photo:json }))
+  }
   
   
   render() {
@@ -24,7 +30,7 @@ class App extends Component {
       <div>
         <h1>NASA's Astronomy Picture of the Day</h1>
         <DateInput changeDate={this.changeDate} />
-        <Photo />
+        <Photo  photo={this.state.photo}/>
       </div>
     );
   }
