@@ -14,15 +14,18 @@ class App extends Component {
   changeDate = e =>{
     e.preventDefault();
     let dateFromInput = e.target[0].value;
-    this.setState({date: dateFromInput})
+    this.setState({date: dateFromInput});
+    this.getPhoto(dateFromInput);
     
   };
 
-  componentDidMount(){
-    fetch(`https://api.nasa.gov/planetary/apod?api_key=`)
+  getPhoto = date => {
+    fetch(`https://api.nasa.gov/planetary/apod?date=${date}&api_key=`)
     .then(response => response.json())
     .then(json => this.setState({ photo:json }))
-  }
+
+  };
+
   
   
   render() {
