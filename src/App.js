@@ -34,6 +34,7 @@ class App extends Component {
         <h1>NASA's Astronomy Picture of the Day</h1>
         <DateInput changeDate={this.changeDate} />
         <Photo  photo={this.state.photo}/>
+        <Mars />
       </div>
     );
   }
