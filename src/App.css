@@ -7,6 +7,16 @@
   pointer-events: none;
 }
 
+
+.astro{
+  background-image: url('https://i.insider.com/5995c9b138c3fb886f8b4841?width=1100&format=jpeg&auto=webp');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

@@ -8,7 +8,9 @@ import React, { Component } from 'react'
 class App extends Component {
   state = {
     date: "",
-    photo: ""
+    photo: "",
+    showApod: false,
+    showMars:false
   };
   
   changeDate = e =>{
@@ -30,8 +32,8 @@ class App extends Component {
   
   render() {
     return (
-      <div>
-        <h1>NASA's Astronomy Picture of the Day</h1>
+        <div className="astro">
+        <h1>Astroworld</h1>
         <DateInput changeDate={this.changeDate} />
         <Photo  photo={this.state.photo}/>
         <Mars />
