@@ -4,20 +4,22 @@ import Mars from './components/Mars'
 import DateInput from './components/DateInput'
 import Photo from './components/Photo'
 import React, { Component } from 'react'
+import Header from './components/Navbar'
+import moment from "moment";
+
 
 class App extends Component {
   state = {
-    date: "",
+    date: moment().toDate(),
     photo: "",
     showApod: false,
     showMars:false
   };
   
-  changeDate = e =>{
-    e.preventDefault();
-    let dateFromInput = e.target[0].value;
-    this.setState({date: dateFromInput});
-    this.getPhoto(dateFromInput);
+  changeDate = dateFromInput => {
+    this.setState({ date: dateFromInput });
+    console.log(typeof(dateFromInput));
+    this.getPhoto(this.formatDate(dateFromInput));
     
   };
 
@@ -28,15 +30,23 @@ class App extends Component {
 
   };
 
+  formatDate = apod_date => {
+    let year = apod_date.getFullYear();
+    let month = moment.month() + 1;
+    let day = moment.date();
+    return `${year}-${month}-${day}`;
+  }
+
   
   
   render() {
     return (
-        <div className="astro">
-        <h1>Astroworld</h1>
-        <DateInput changeDate={this.changeDate} />
+        <div>
+        <Header/>
+      
+        <DateInput changeDate={this.changeDate} date={this.state.date} />
         <Photo  photo={this.state.photo}/>
-        <Mars />
+        
       </div>
     );
   }
