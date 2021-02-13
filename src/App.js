@@ -32,8 +32,8 @@ class App extends Component {
 
   formatDate = apod_date => {
     let year = apod_date.getFullYear();
-    let month = moment.month() + 1;
-    let day = moment.date();
+    let month = apod_date.getMonth() + 1;
+    let day = apod_date.getDay();
     return `${year}-${month}-${day}`;
   }
 
