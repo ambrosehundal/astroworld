@@ -6,6 +6,8 @@ import Photo from './components/Photo'
 import React, { Component } from 'react'
 import Header from './components/Navbar'
 import moment from "moment";
+import { BrowserRouter } from "react-router-dom";
+import ReactDOM from 'react'
 
 
 class App extends Component {
@@ -41,7 +43,7 @@ class App extends Component {
   
   render() {
     return (
-        <div>
+        <div id="root">
         <Header/>
       
         <DateInput changeDate={this.changeDate} date={this.state.date} />
@@ -51,5 +53,8 @@ class App extends Component {
     );
   }
 }
+
+
+
 
 export default App;
