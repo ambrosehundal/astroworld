@@ -14,7 +14,8 @@ class App extends Component {
   state = {
     date: moment().toDate(),
     photo: "",
-    showApod: false,
+    showDateInput: true,
+    showPhoto:true,
     showMars:false
   };
   
@@ -44,10 +45,10 @@ class App extends Component {
   render() {
     return (
         <div id="root">
-        <Header/>
-      
+        <Header showdate={this.state.showDateInput} showPhoto={this.state.showPhoto} showMars={this.state.showMars} />
+
         <DateInput changeDate={this.changeDate} date={this.state.date} />
-        <Photo  photo={this.state.photo}/>
+        <Photo photo={this.state.photo}/>
         
       </div>
     );
