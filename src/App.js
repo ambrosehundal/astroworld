@@ -20,6 +20,14 @@ class App extends Component {
     showPhoto:true,
     showMars:false
   };
+
+  showRover(){
+    this.setState({
+      showMars:true,
+      showPhoto:false,
+      showDateInput:false
+    });
+  }
   
   changeDate = dateFromInput => {
     this.setState({ date: dateFromInput });
@@ -59,7 +67,7 @@ class App extends Component {
                                     <Nav.Link href="/contact-us">About Us</Nav.Link>
                                     <NavDropdown title="Pictures" id="basic-nav-dropdown">
                                         <NavDropdown.Item href="#action/3.1">Picture of the Day</NavDropdown.Item>
-                                        <NavDropdown.Item href="/mars" >Mars</NavDropdown.Item>
+                                        <NavDropdown.Item onClick={this.showRover} >Mars</NavDropdown.Item>
                                         <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
                                         <NavDropdown.Divider />
                                         <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
@@ -76,7 +84,7 @@ class App extends Component {
         
         
         
-
+        { this.state.showMars && <Mars props={this.state.showMars}/>}
         <DateInput changeDate={this.changeDate} date={this.state.date} />
         <Photo photo={this.state.photo}/>
         
