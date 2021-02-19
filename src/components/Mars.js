@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function Mars(props) {
+const Mars = props => {
 
 
     const [rover, setRover] = useState("");

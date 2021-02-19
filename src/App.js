@@ -29,6 +29,11 @@ class App extends Component {
     });
   }
 
+
+  getRoverPhotos = () => {
+
+  }
+
   showApod = () => {
     this.setState({
       showMars:false,
@@ -93,7 +98,7 @@ class App extends Component {
         
         
         
-        {this.state.showMars && <Mars/>}
+        {this.state.showMars && <Mars getRover={this.getRoverPhotos}/>}
         {this.state.showDateInput && <DateInput changeDate={this.changeDate} date={this.state.date} /> }
         {this.state.showPhoto &&  <Photo photo={this.state.photo}/> } 
         
