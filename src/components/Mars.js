@@ -1,4 +1,10 @@
 import React, { useState } from 'react';
+import { Form, FormControl, Button } from 'react-bootstrap'
+import InputRange from 'react-input-range';
+import '../App.css';
+
+
+
 
 const Mars = props => {
 
@@ -33,28 +39,47 @@ const Mars = props => {
     }
 
     return (
-        <form>
-            <label>
-                Pick a Rover:
-                <select onChange={changeRover} >
-                    <option value="curiosity">Curiosity</option>
-                    <option value="opportunity">Opportunity</option>
-                    <option value="spirit">Spirit</option>
-                    
-                </select>
+       
+    <div className="field">
+    
+    
+        <Form>
+        <Form.Group controlId="formBasicEmail">
+        <Form.Label>Pick a Rover</Form.Label>
+        <Form.Control as="select">
 
-                <div> 
-          <select> 
-            { 
-              /** This is where we have used our options variable */
-              cameras 
-            } 
-          </select> 
-        </div> 
 
-            </label>
+
+            <option>Curiosity</option>
+            <option>Opportunity</option>
+            <option>Spirit</option>
+         </Form.Control>
+        </Form.Group>
+
+        <Form.Group controlId="formBasicPassword">
+        <Form.Label>Camera</Form.Label>
+        <Form.Control type="text" placeholder="Camera" as="select">
+            {cameras}
+
+        </Form.Control>
+        </Form.Group>
         
-        </form>
+     
+        
+        <Form.Group >
+        <InputRange
+            maxValue={20}
+            minValue={0}  />
+        </Form.Group>
+       
+
+
+        <Button variant="primary" type="submit">
+        Submit
+        </Button>
+        </Form>
+
+    </div>
     );
 }
 
