@@ -30,14 +30,6 @@ class App extends Component {
   }
 
 
-  getRoverPhotos = (rover, camera, sol_range) => {
-    fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?sol=${sol_range}&camera=${camera}&api_key=`)
-    .then(response => response.json())
-    .then(json => this.setState({ photo:json }))
-
-
-
-  }
 
   showApod = () => {
     this.setState({
@@ -103,7 +95,7 @@ class App extends Component {
         
         
         
-        {this.state.showMars && <Mars getRover={this.getRoverPhotos}/>}
+        {this.state.showMars && <Mars />}
         {this.state.showDateInput && <DateInput changeDate={this.changeDate} date={this.state.date} /> }
         {this.state.showPhoto &&  <Photo photo={this.state.photo}/> } 
         
