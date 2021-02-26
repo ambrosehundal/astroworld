@@ -3,7 +3,7 @@ import { Form, FormControl, Button } from 'react-bootstrap'
 
 import '../App.css';
 
-
+import RoverPhotos from './RoverPhotos'
 
 
 const Mars = props => {
@@ -11,7 +11,7 @@ const Mars = props => {
 
     const [rover, setRover] = useState("yahoo");
 
-    const[images, setImages] = useState(null);
+    const[photos, setPhotos] = useState([]);
 
     const[camera, setCamera] = useState("");
 
@@ -47,14 +47,14 @@ const getRoverPhotos = (evt) => {
   let rover_camera = camera;
   fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/${mars_rover}/photos?sol=1000&page=1&camera=${rover_camera}&api_key=`)
   .then(response => response.json())
-  .then(json => this.setState({ photo:json }))
+  .then(json => setPhotos(json))
 
   evt.preventDefault();
-
+  console.log(photos);
 }
 
 
-  console.log(images);
+
 
     console.log(rover);
     return (
@@ -94,7 +94,10 @@ const getRoverPhotos = (evt) => {
         <input type="submit" value="Submit" onClick={getRoverPhotos} />
         </Form>
 
+        <RoverPhotos photos={photos}/>
     </div>
+
+
     );
 }
 
