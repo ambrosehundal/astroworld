@@ -7,7 +7,7 @@ const RoverPhotos = props => (
         <div class="col-md-4">
         </div>
         <div class="col-md-4">
-         <h3>{props.photos.map(photo => <div>{photo.camera.full_name}
+         <h3>{props.photos.map(photo => <div>{photo.earth_date}
             
             
             <img className="photosize" src={photo.img_src}  />
