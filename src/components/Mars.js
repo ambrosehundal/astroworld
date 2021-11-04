@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Form, FormControl, Button } from 'react-bootstrap'
+import { Form, FormControl} from 'react-bootstrap'
 
 import '../App.css';
 
@@ -41,17 +41,13 @@ const Mars = props => {
     
     
 const getRoverPhotos = (evt) => {
-//   let mars_rover = rover;
-//   let camera
   let mars_rover = rover;
   let rover_camera = camera;
-  fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/${mars_rover}/photos?sol=1000&page=1&camera=${rover_camera}&api_key=`)
+  fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/${mars_rover}/photos?sol=1000&page=1&camera=${rover_camera}&api_key=brpG7ZJTp8W280XldBgoPiAon7mWqaOORiYGYghh`)
   .then(response => response.json())
   .then(json => setPhotos(json.photos))
 
   evt.preventDefault();
-  console.log(photos);
-  console.log(typeof(photos))
 }
 
 
@@ -92,7 +88,7 @@ const getRoverPhotos = (evt) => {
        
 
 
-        <input type="submit" value="Submit" onClick={getRoverPhotos} />
+        <input type="submit" value="Submit" onClick={getRoverPhotos()} />
         </Form>
 
         <RoverPhotos photos={photos}/>
