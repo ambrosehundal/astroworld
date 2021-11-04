@@ -39,6 +39,16 @@ class App extends Component {
 
     });
   }
+
+  showEarth = () => {
+    this.setState({
+      showMars:false,
+      showPhoto:false,
+      showDateInput:false,
+      showEarth: true
+
+    });
+  }
   
   changeDate = dateFromInput => {
     this.setState({ date: dateFromInput });
@@ -79,9 +89,7 @@ class App extends Component {
                                     <NavDropdown title="Pictures" id="basic-nav-dropdown">
                                         <NavDropdown.Item onClick={this.showApod}>Picture of the Day</NavDropdown.Item>
                                         <NavDropdown.Item onClick={this.showRover} >Mars</NavDropdown.Item>
-                                        <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                                        <NavDropdown.Divider />
-                                        <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+                                        <NavDropdown.Item onClick={this.showEarth} >Earth</NavDropdown.Item>
                                     </NavDropdown>
                                     </Nav>
                                    
@@ -98,7 +106,7 @@ class App extends Component {
         {this.state.showMars && <Mars />}
         {this.state.showDateInput && <DateInput changeDate={this.changeDate} date={this.state.date} /> }
         {this.state.showPhoto &&  <Photo photo={this.state.photo}/> } 
-        <Earth/>
+        {this.state.showEarth && <Earth/>}
         
       </div>
     );
