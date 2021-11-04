@@ -88,7 +88,7 @@ const getRoverPhotos = (evt) => {
        
 
 
-        <input type="submit" value="Submit" onClick={getRoverPhotos()} />
+        <input type="submit" value="Submit" onClick={getRoverPhotos} />
         </Form>
 
         <RoverPhotos photos={photos}/>

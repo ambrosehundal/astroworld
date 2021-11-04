@@ -4,6 +4,8 @@ import Mars from './components/Mars';
 import DateInput from './components/DateInput';
 import Earth  from './components/Earth';
 import Photo from './components/Photo';
+import Satellite from './components/Satellite';
+import NASASearchBar from './components/NASASearch';
 import React, { Component } from 'react';
 import Header from './components/Navbar';
 import moment from "moment";
@@ -107,6 +109,7 @@ class App extends Component {
         {this.state.showDateInput && <DateInput changeDate={this.changeDate} date={this.state.date} /> }
         {this.state.showPhoto &&  <Photo photo={this.state.photo}/> } 
         {this.state.showEarth && <Earth/>}
+        <NASASearchBar/>
         
       </div>
     );
