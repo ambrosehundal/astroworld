@@ -4,6 +4,7 @@ import Mars from './components/Mars';
 import DateInput from './components/DateInput';
 import Earth  from './components/Earth';
 import Photo from './components/Photo';
+import SpaceNews from './components/SpaceNews';
 import Satellite from './components/Satellite';
 import NASASearchBar from './components/NASASearch';
 import React, { Component } from 'react';
@@ -15,6 +16,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import { Navbar,Nav,NavDropdown,Form,FormControl,Button } from 'react-bootstrap'
 
 
+
 class App extends Component {
   state = {
     date: moment().toDate(),
@@ -22,8 +24,18 @@ class App extends Component {
     showDateInput: true,
     showPhoto:true,
     showMars:false,
-    showEarth: false
+    showEarth: false,
+    spaceNews: "",
   };
+
+  
+
+  getSpaceNews = () => {
+    fetch("https://api.spaceflightnewsapi.net/v3/articles")
+    .then(response => response.json())
+    .then(json => this.setState({ spaceNews:json }))
+
+  }
 
   showRover = () => {
     this.setState({
@@ -65,6 +77,8 @@ class App extends Component {
     .then(json => this.setState({ photo:json }))
 
   };
+
+  
 
   formatDate = apod_date => {
     let year = apod_date.getFullYear();
@@ -109,7 +123,7 @@ class App extends Component {
         {this.state.showDateInput && <DateInput changeDate={this.changeDate} date={this.state.date} /> }
         {this.state.showPhoto &&  <Photo photo={this.state.photo}/> } 
         {this.state.showEarth && <Earth/>}
-        <NASASearchBar/>
+        <SpaceNews spaceNews = {this.state.spaceNews}/>
         
       </div>
     );
