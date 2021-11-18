@@ -9,34 +9,34 @@ import RoverPhotos from './RoverPhotos'
 const Mars = props => {
 
 
-    const [rover, setRover] = useState("yahoo");
+    const [rover, setRover] = useState("CuriosityCameras");
 
     const[photos, setPhotos] = useState([]);
 
     const[camera, setCamera] = useState("");
 
-    const curiosity = ['FHAZ', 'RHAZ', 'MAST', 'CHEMCAM', 'MAHLI', 'MARDI', 'NAVCAM'];
+    const CuriosityCameras = ['FHAZ', 'RHAZ', 'MAST', 'CHEMCAM', 'MAHLI', 'MARDI', 'NAVCAM'];
 
-    const opportunity_or_spirit = ['FHAZ', 'RHAZ', 'NAVCAM', 'PANCAM', 'MINITES'];
+    const OpportunityAndSpiritCameras = ['FHAZ', 'RHAZ', 'NAVCAM', 'PANCAM', 'MINITES'];
 
     let type = null;
     
-    let cameras = null;
+    let roverCameras = null;
 
 
     // function to change the rover state to currently selected rover
    
 
-    if(rover === 'curiosity'){
-        type = curiosity;
+    if(rover === 'CuriosityCameras'){
+        type = CuriosityCameras;
     }
     else {
-        type = opportunity_or_spirit;
+        type = OpportunityAndSpiritCameras;
     }
 
 
     if(type){
-        cameras = type.map((el) => <option key={el}>{el}</option>);
+        roverCameras = type.map((el) => <option key={el}>{el}</option>);
     }
     
     
@@ -66,7 +66,7 @@ const getRoverPhotos = (evt) => {
 
 
 
-            <option value="curiosity">Curiosity</option>
+            <option value="CuriosityCameras">Curiosity</option>
             <option value="opportunity">Opportunity</option>
             <option value="spirit">Spirit</option>
          </FormControl>
@@ -75,7 +75,7 @@ const getRoverPhotos = (evt) => {
         <Form.Group controlId="formBasicPassword">
         <Form.Label>Camera</Form.Label>
         <FormControl type="text" placeholder="Camera" as="select" onChange={e => setCamera(e.target.value)}>
-            {cameras}
+            {roverCameras}
 
         </FormControl>
         </Form.Group>
@@ -88,7 +88,7 @@ const getRoverPhotos = (evt) => {
        
 
 
-        <input type="submit" value="Submit" onClick={getRoverPhotos()} />
+        <input type="submit" value="Submit" onClick={getRoverPhotos} />
         </Form>
 
         <RoverPhotos photos={photos}/>

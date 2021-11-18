@@ -12,4 +12,4 @@ const DateInput = props => (
 
 
 
-export default DateInput
+export default DateInput;

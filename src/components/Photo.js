@@ -4,9 +4,9 @@ import React from "react";
 const Photo = props => (
 
     <div class="container">
-        <div class="col-md-4">
+        <div class="col-md-2">
         </div>
-        <div class="col-md-4">
+        <div class="col-md-6">
         <h3>{props.photo.title}</h3>
         <img className="photosize" src={props.photo.url} alt={props.photo.title} />
         <p>{props.photo.explanation}</p>

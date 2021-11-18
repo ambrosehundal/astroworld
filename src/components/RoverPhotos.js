@@ -25,4 +25,4 @@ const RoverPhotos = props => (
 );
 
 
-export default RoverPhotos
+export default RoverPhotos;
