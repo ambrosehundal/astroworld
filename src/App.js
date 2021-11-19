@@ -1,6 +1,7 @@
 
 import './App.css';
 import Mars from './components/Mars';
+import Background from './components/Background';
 import DateInput from './components/DateInput';
 import Earth  from './components/Earth';
 import Photo from './components/Photo';
@@ -116,16 +117,21 @@ class App extends Component {
                             
      
 
+        <Background/>
         
-        
+       
         
         {this.state.showMars && <Mars />}
         {this.state.showDateInput && <DateInput changeDate={this.changeDate} date={this.state.date} /> }
         {this.state.showPhoto &&  <Photo photo={this.state.photo}/> } 
         {this.state.showEarth && <Earth/>}
         <SpaceNews spaceNews = {this.state.spaceNews}/>
+
+      
         
       </div>
+
+
     );
   }
 }
