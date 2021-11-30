@@ -11,10 +11,11 @@ import NASASearchBar from './components/NASASearch';
 import React, { Component } from 'react';
 import Header from './components/Navbar';
 import moment from "moment";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import ReactDOM from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import { Navbar,Nav,NavDropdown,Form,FormControl,Button } from 'react-bootstrap'
+import RoverPhotos from './components/RoverPhotos';
 
 
 
@@ -92,20 +93,22 @@ class App extends Component {
   
   render() {
     return (
-
-      <div id="root">
+      <Router>
+           <div id="root">
      
                             <Navbar bg="dark" variant="dark" expand="lg" sticky="top">
+
+
                                 <Navbar.Brand href="#home">Astroworld</Navbar.Brand>
                                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                                 <Navbar.Collapse id="basic-navbar-nav">
                                     <Nav className="mr-auto">
-                                    <Nav.Link href="/">News</Nav.Link>
+                                    <Nav.Link> <Link to="/photos/mars">Mars</Link></Nav.Link>
                                     <Nav.Link href="/about-us">Observatories</Nav.Link>
                                     <Nav.Link href="/contact-us">About Us</Nav.Link>
                                     <NavDropdown title="Pictures" id="basic-nav-dropdown">
                                         <NavDropdown.Item onClick={this.showApod}>Picture of the Day</NavDropdown.Item>
-                                        <NavDropdown.Item onClick={this.showRover} >Mars</NavDropdown.Item>
+                                        {/* <NavDropdown.Item onClick={this.showRover} >Mars</NavDropdown.Item> */}
                                         <NavDropdown.Item onClick={this.showEarth} >Earth</NavDropdown.Item>
                                     </NavDropdown>
                                     </Nav>
@@ -113,17 +116,26 @@ class App extends Component {
                                 </Navbar.Collapse>
                             </Navbar>
 
-                           
+            
+            <Switch>
+              <Route exact path="/">
+               <DateInput changeDate={this.changeDate} date={this.state.date} /> 
+                 <Photo photo={this.state.photo}/> 
+              </Route>
+              <Route path='/photos/mars'>
+
+                <Mars/>
+              </Route>
+
+
+
+
+            </Switch>
                             
      
 
-        <Background/>
+        {/* <Background/> */}
         
-       
-        
-        {this.state.showMars && <Mars />}
-        {this.state.showDateInput && <DateInput changeDate={this.changeDate} date={this.state.date} /> }
-        {this.state.showPhoto &&  <Photo photo={this.state.photo}/> } 
         {this.state.showEarth && <Earth/>}
         <SpaceNews spaceNews = {this.state.spaceNews}/>
 
@@ -131,6 +143,10 @@ class App extends Component {
         
       </div>
 
+
+      </Router>
+
+   
 
     );
   }

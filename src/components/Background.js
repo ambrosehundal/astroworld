@@ -7,10 +7,10 @@ class Background extends Component {
     return (
       <StarfieldAnimation
         style={{
-          position: 'absolute',
+          position: 'relative',
           width: '100%',
-          height: '100%'
-        }}
+          height: '100vw'
+        }} numParticles = {1000}
       />
     )
   }
