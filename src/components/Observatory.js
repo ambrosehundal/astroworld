@@ -1,9 +1,10 @@
-import GoogleMapReact from 'google-map-react'
+import React from 'react';
+import GoogleMapReact from 'google-map-react';
 
 
 const Observatory = ({center, zoom}) => {
     return (
-        <div className="map">
+        <div style={{ height: '100vh', width: '100%' }}>
             <GoogleMapReact bootstrapURLKeys={{key: ''}}
             defaultCenter={center}
             defaultZoom={zoom}
@@ -25,4 +26,4 @@ Observatory.defaultProps = {
     zoom: 6
 }
 
-export default Observatory
+export default Observatory;
