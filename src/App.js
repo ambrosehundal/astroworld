@@ -1,5 +1,6 @@
 
 import './App.css';
+import TwitterTimeline from './components/TwitterTimelines';
 import Mars from './components/Mars';
 import Background from './components/Background';
 import DateInput from './components/DateInput';
@@ -99,7 +100,7 @@ class App extends Component {
                             <Navbar bg="dark" variant="dark" expand="lg" sticky="top">
 
 
-                                <Navbar.Brand href="#home">Astroworld</Navbar.Brand>
+                                <Navbar.Brand href="#home">Everything Astronomy</Navbar.Brand>
                                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                                 <Navbar.Collapse id="basic-navbar-nav">
                                     <Nav className="mr-auto">
@@ -119,11 +120,15 @@ class App extends Component {
             
             <Switch>
               <Route exact path="/">
-               <DateInput changeDate={this.changeDate} date={this.state.date} /> 
+             
+              <TwitterTimeline/>
+              <Background/>
+              </Route>
+              <Route exact path="/photos/apod">
+               <DateInput className="dateInput" changeDate={this.changeDate} date={this.state.date} /> 
                  <Photo photo={this.state.photo}/> 
               </Route>
               <Route path='/photos/mars'>
-
                 <Mars/>
               </Route>
 
@@ -132,9 +137,9 @@ class App extends Component {
 
             </Switch>
                             
-     
+        
 
-        {/* <Background/> */}
+       
         
         {this.state.showEarth && <Earth/>}
         <SpaceNews spaceNews = {this.state.spaceNews}/>
