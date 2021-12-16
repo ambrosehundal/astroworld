@@ -1,5 +1,11 @@
 import React from 'react';
 import GoogleMapReact from 'google-map-react';
+import LocationMarker from './LocationMarker';
+
+
+
+
+
 
 
 const Observatory = ({center, zoom}) => {
@@ -8,8 +14,8 @@ const Observatory = ({center, zoom}) => {
             <GoogleMapReact bootstrapURLKeys={{key: ''}}
             defaultCenter={center}
             defaultZoom={zoom}
-            
             >
+                  <LocationMarker lat={37.341566516139295} lng={-121.64294238827338}/>
           
               </GoogleMapReact>
         </div>
