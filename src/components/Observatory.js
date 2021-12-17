@@ -2,33 +2,43 @@ import React, { useState } from 'react';
 import GoogleMapReact from 'google-map-react';
 import LocationMarker from './LocationMarker';
 import ObservatoryInfo from './ObservatoryInfo';
+import { Modal } from 'react-bootstrap';
 
 
 
 const Observatory = ({center, zoom}) => {
-    const [isHovering, setIsHovering] = useState(false);
 
+    const [show, setModal] = useState(false);
 
-    const handleMouseOver = () => {
-        setIsHovering(true);
-    }
-
-    const handleMouseOut = () => {
-        setIsHovering(false);
-    }
-
-
+    const showModal = () => setModal(true);
+    const hideModal = () => setModal(false);
+ 
     return (
         <div style={{ height: '100vh', width: '100%' }}>
-            <GoogleMapReact bootstrapURLKeys={{key: 'AIzaSyCzoe0jLk3fJztAaC2z-xfejXqrICbzSgk'}}
+            <GoogleMapReact bootstrapURLKeys={{key: ''}}
             defaultCenter={center}
             defaultZoom={zoom}
             >
-                  <LocationMarker onMouseOver={handleMouseOver} lat={37.341566516139295} lng={-121.64294238827338}/>
-                  {isHovering && <ObservatoryInfo/>}
-                  {/* <ObservatoryInfo/> */}
+                <div onClick={showModal}>
+                <LocationMarker lat={37.341566516139295} lng={-121.64294238827338}/>
+                </div>
+    <Modal show={show}>
+
+        <Modal.Header>
+          <Modal.Title>Lick Observatory</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>The hallmark of Bay Area, home of the Great Refractor</Modal.Body>
+      
+    </Modal>
+
           
               </GoogleMapReact>
+              
+                
+                 
+            
+                  
+              
         </div>
     )
 }
