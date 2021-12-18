@@ -36,43 +36,15 @@ class App extends Component {
     .then(json => this.setState({ spaceNews:json }))
 
   }
-
-  showRover = () => {
-    this.setState({
-      showMars:true,
-      showPhoto:false,
-      showDateInput:false
-    });
-  }
-
-  showApod = () => {
-    this.setState({
-      showMars:false,
-      showPhoto:true,
-      showDateInput:true
-
-    });
-  }
-
-  showEarth = () => {
-    this.setState({
-      showMars:false,
-      showPhoto:false,
-      showDateInput:false,
-      showEarth: true
-
-    });
-  }
   
   changeDate = dateFromInput => {
     this.setState({ date: dateFromInput });
-    console.log(typeof(dateFromInput));
     this.getPhoto(this.formatDate(dateFromInput));
     
   };
 
   getPhoto = date => {
-    fetch(`https://api.nasa.gov/planetary/apod?date=${date}&api_key=brpG7ZJTp8W280XldBgoPiAon7mWqaOORiYGYghh`)
+    fetch(`https://api.nasa.gov/planetary/apod?date=${date}&api_key=`)
     .then(response => response.json())
     .then(json => this.setState({ photo:json }))
 
@@ -92,7 +64,7 @@ class App extends Component {
   render() {
     return (
       <Router>
-           <div id="root">
+           
      
                             <Navbar bg="dark" variant="dark" expand="lg" sticky="top">
 
@@ -105,8 +77,7 @@ class App extends Component {
                                     <NavDropdown title="Pictures" id="basic-nav-dropdown">
                                         
                                     <NavDropdown.Item> <Link to="/photos/mars">Mars</Link></NavDropdown.Item>
-                                        <NavDropdown.Item onClick={this.showApod}>Picture of the Day</NavDropdown.Item>
-                                        {/* <NavDropdown.Item onClick={this.showRover} >Mars</NavDropdown.Item> */}
+                                        <NavDropdown.Item ><Link to="/photos/apod">Picture of the day</Link></NavDropdown.Item>
                                         <NavDropdown.Item onClick={this.showEarth} >Earth</NavDropdown.Item>
                                     </NavDropdown>
                                     </Nav>
@@ -132,22 +103,9 @@ class App extends Component {
               <Route path='/observatories'>
                 <Observatory/>
               </Route>
-
-
-
-
             </Switch>
-                            
-        
-
-       
-        
-        {this.state.showEarth && <Earth/>}
-        <SpaceNews spaceNews = {this.state.spaceNews}/>
-
+                                    
       
-        
-      </div>
 
 
       </Router>
