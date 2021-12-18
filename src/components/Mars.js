@@ -50,10 +50,6 @@ const getRoverPhotos = (evt) => {
   evt.preventDefault();
 }
 
-
-
-
-    console.log(rover);
     return (
        
     <div className="field">
@@ -100,4 +96,4 @@ const getRoverPhotos = (evt) => {
 
 
 
-export default Mars
+export default Mars;
