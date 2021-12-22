@@ -6,7 +6,7 @@ import Mars from './components/Mars';
 import Background from './components/Background';
 import DateInput from './components/DateInput';
 import PictureOfTheDay from './components/PictureOfTheDay';
-import Earth  from './components/Earth';
+import EarthPictures from './components/EarthPictures';
 import SpaceNews from './components/SpaceNews';
 import React, { Component } from 'react';
 import moment from "moment";
@@ -65,7 +65,7 @@ class App extends Component {
                                         
                                     <NavDropdown.Item> <Link to="/photos/mars">Mars</Link></NavDropdown.Item>
                                         <NavDropdown.Item ><Link to="/photos/apod">Picture of the day</Link></NavDropdown.Item>
-                                        <NavDropdown.Item onClick={this.showEarth} >Earth</NavDropdown.Item>
+                                        <NavDropdown.Item ><Link to="/photos/earth">Earth</Link></NavDropdown.Item>
                                     </NavDropdown>
                                     </Nav>
                                    
@@ -85,6 +85,10 @@ class App extends Component {
               </Route>
               <Route path='/photos/mars'>
                 <Mars/>
+              </Route>
+
+              <Route path='/photos/earth'>
+                <EarthPictures/>
               </Route>
 
               <Route path='/observatories'>
