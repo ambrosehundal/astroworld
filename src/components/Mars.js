@@ -131,7 +131,7 @@ const getRoverPhotos = (evt) => {
         </Form.Group>
 
         <>
-                <Slider min={0} max={1000} defaultValue={100} onChange={value => setSol(value)} handle={handle}/>
+                <Slider min={0} max={1000} defaultValue={100} onAfterChange={value => setSol(value)} handle={handle}/>
             </>
         
      
