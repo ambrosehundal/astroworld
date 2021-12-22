@@ -30,6 +30,8 @@ const Mars = props => {
 
     const [rover, setRover] = useState("Curiosity");
 
+    const[sol, setSol] = useState(100);
+
     const[photos, setPhotos] = useState([]);
 
     const[camera, setCamera] = useState("");
@@ -62,7 +64,9 @@ const Mars = props => {
 const getRoverPhotos = (evt) => {
   let marsRover = rover;
   let roverCameraType = camera;
-  fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/${marsRover}/photos?sol=300&page=1&camera=${roverCameraType}&api_key=`)
+  let solValue = sol;
+  console.log(solValue);
+  fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/${marsRover}/photos?sol=800&page=1&camera=${roverCameraType}&api_key=`)
   .then(response => response.json())
   .then(json => setPhotos(json.photos))
 
@@ -127,7 +131,7 @@ const getRoverPhotos = (evt) => {
         </Form.Group>
 
         <>
-                <Slider min={0} max={1000} defaultValue={100} handle={handle}/>
+                <Slider min={0} max={1000} defaultValue={100} onChange={value => setSol(value)} handle={handle}/>
             </>
         
      
