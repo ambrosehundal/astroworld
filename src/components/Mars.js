@@ -40,24 +40,22 @@ const Mars = props => {
 
     const OpportunityAndSpiritCameras = ['FHAZ', 'RHAZ', 'NAVCAM', 'PANCAM', 'MINITES'];
 
-    let type = null;
+    let cameraOptions = null;
     
     let roverCameras = null;
 
-    console.log(photos);
-
-
-    // function to change the rover state to currently selected rover
+    
+    // populate camera options based on rover selected
     if(rover === 'Curiosity'){
-        type = CuriosityCameras;
+        cameraOptions = CuriosityCameras;
     }
     else {
-        type = OpportunityAndSpiritCameras;
+        cameraOptions = OpportunityAndSpiritCameras;
     }
 
 
-    if(type){
-        roverCameras = type.map((el) => <option key={el}>{el}</option>);
+    if(cameraOptions){
+        roverCameras = cameraOptions.map((el) => <option key={el}>{el}</option>);
     }
     
     
@@ -145,7 +143,7 @@ const getRoverPhotos = (evt) => {
         <input type="submit" value="Submit" onClick={getRoverPhotos} />
         </Form>
 
-        <RoverPhotos photos={photos}/>
+      
     </div>
 
     <div className="col-md-3">
@@ -153,6 +151,26 @@ const getRoverPhotos = (evt) => {
     </div>
 
     </div>
+
+
+    <div className="row">
+
+        <div className="col-md-3">
+
+        </div>
+
+
+        
+        <div className="col-md-6">
+        <RoverPhotos photos={photos}/>
+        
+        </div>
+
+        <div className="col-md-3">
+            
+        </div>
+    </div>
+
     </div>
 
 

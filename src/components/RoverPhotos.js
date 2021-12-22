@@ -4,12 +4,13 @@ import React from "react";
 const RoverPhotos = props => (
 
     <div className="container">
-        <div className="col-md-4">
-        </div>
-        <div className="col-md-4">
+        <div className="row">
+       
+        <div className="col-md-12">
+
 
         {props.photos.length > 0 &&
-         <h3>{props.photos.map(photo => <div>{photo.earth_date}
+         <h3>{props.photos.map(photo => <div className="roverPhotos col-md-6">{photo.earth_date}
             
             
             <img className="photosize" src={photo.img_src}  />
@@ -18,12 +19,12 @@ const RoverPhotos = props => (
 
         {props.photos.length === 0 &&
         
-        <h2>No results found</h2>
+        <h2>No pictures found for this camera</h2>
         
         }
        
         </div>
-        <div className="col-md-4">
+
         </div>
        
     
