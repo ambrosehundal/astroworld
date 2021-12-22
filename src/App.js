@@ -5,8 +5,8 @@ import TwitterTimeline from './components/TwitterTimelines';
 import Mars from './components/Mars';
 import Background from './components/Background';
 import DateInput from './components/DateInput';
+import PictureOfTheDay from './components/PictureOfTheDay';
 import Earth  from './components/Earth';
-import Photo from './components/Photo';
 import SpaceNews from './components/SpaceNews';
 import React, { Component } from 'react';
 import moment from "moment";
@@ -21,21 +21,8 @@ class App extends Component {
   state = {
     date: moment().toDate(),
     photo: "",
-    showDateInput: true,
-    showPhoto:true,
-    showMars:false,
-    showEarth: false,
-    spaceNews: "",
   };
 
-  
-
-  getSpaceNews = () => {
-    fetch("https://api.spaceflightnewsapi.net/v3/articles")
-    .then(response => response.json())
-    .then(json => this.setState({ spaceNews:json }))
-
-  }
   
   changeDate = dateFromInput => {
     this.setState({ date: dateFromInput });
@@ -44,7 +31,7 @@ class App extends Component {
   };
 
   getPhoto = date => {
-    fetch(`https://api.nasa.gov/planetary/apod?date=${date}&api_key=brpG7ZJTp8W280XldBgoPiAon7mWqaOORiYGYghh`)
+    fetch(`https://api.nasa.gov/planetary/apod?date=${date}&api_key=`)
     .then(response => response.json())
     .then(json => this.setState({ photo:json }))
 
@@ -94,7 +81,7 @@ class App extends Component {
               </Route>
               <Route exact path="/photos/apod">
                <DateInput className="dateInput" changeDate={this.changeDate} date={this.state.date} /> 
-                 <Photo photo={this.state.photo}/> 
+                 <PictureOfTheDay photo={this.state.photo}/> 
               </Route>
               <Route path='/photos/mars'>
                 <Mars/>
