@@ -1,9 +1,28 @@
 import React, { useState } from 'react';
 import { Form, FormControl} from 'react-bootstrap';
-
+import Slider, { SliderTooltip } from 'rc-slider';
+import 'rc-slider/assets/index.css';
+import 'rc-tooltip/assets/bootstrap.css';
+import RoverPhotos from './RoverPhotos';
 import '../App.css';
 
-import RoverPhotos from './RoverPhotos';
+const { Handle } = Slider;
+
+const handle = props => {
+    const { value, dragging, index, ...restProps } = props;
+    return (
+      <SliderTooltip
+        prefixCls="rc-slider-tooltip"
+        overlay={`${value}`}
+        visible={dragging}
+        placement="top"
+        key={index}
+      >
+        <Handle value={value} {...restProps} />
+      </SliderTooltip>
+    );
+};
+
 
 
 const Mars = props => {
@@ -102,9 +121,14 @@ const getRoverPhotos = (evt) => {
         <Form.Label>Select rover camera</Form.Label>
         <FormControl type="text" placeholder="Camera" as="select" onChange={e => setCamera(e.target.value)}>
             {roverCameras}
-
         </FormControl>
+
+      
         </Form.Group>
+
+        <>
+                <Slider min={0} max={1000} defaultValue={100} handle={handle}/>
+            </>
         
      
         
