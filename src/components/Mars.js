@@ -1,15 +1,36 @@
 import React, { useState } from 'react';
 import { Form, FormControl} from 'react-bootstrap';
-
+import Slider, { SliderTooltip } from 'rc-slider';
+import 'rc-slider/assets/index.css';
+import 'rc-tooltip/assets/bootstrap.css';
+import RoverPhotos from './RoverPhotos';
 import '../App.css';
 
-import RoverPhotos from './RoverPhotos';
+const { Handle } = Slider;
+
+const handle = props => {
+    const { value, dragging, index, ...restProps } = props;
+    return (
+      <SliderTooltip
+        prefixCls="rc-slider-tooltip"
+        overlay={`${value}`}
+        visible={dragging}
+        placement="top"
+        key={index}
+      >
+        <Handle value={value} {...restProps} />
+      </SliderTooltip>
+    );
+};
+
 
 
 const Mars = props => {
 
 
     const [rover, setRover] = useState("Curiosity");
+
+    const[sol, setSol] = useState(100);
 
     const[photos, setPhotos] = useState([]);
 
@@ -43,7 +64,9 @@ const Mars = props => {
 const getRoverPhotos = (evt) => {
   let marsRover = rover;
   let roverCameraType = camera;
-  fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/${marsRover}/photos?sol=300&page=1&camera=${roverCameraType}&api_key=`)
+  let solValue = sol;
+  console.log(solValue);
+  fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/${marsRover}/photos?sol=800&page=1&camera=${roverCameraType}&api_key=`)
   .then(response => response.json())
   .then(json => setPhotos(json.photos))
 
@@ -102,9 +125,14 @@ const getRoverPhotos = (evt) => {
         <Form.Label>Select rover camera</Form.Label>
         <FormControl type="text" placeholder="Camera" as="select" onChange={e => setCamera(e.target.value)}>
             {roverCameras}
-
         </FormControl>
+
+      
         </Form.Group>
+
+        <>
+                <Slider min={0} max={1000} defaultValue={100} onAfterChange={value => setSol(value)} handle={handle}/>
+            </>
         
      
         
