@@ -7,13 +7,11 @@ import Background from './components/Background';
 import DateInput from './components/DateInput';
 import PictureOfTheDay from './components/PictureOfTheDay';
 import EarthPictures from './components/EarthPictures';
-import SpaceNews from './components/SpaceNews';
 import React, { Component } from 'react';
 import moment from "moment";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.css';
-import { Navbar,Nav,NavDropdown,Form,FormControl,Button } from 'react-bootstrap'
-import RoverPhotos from './components/RoverPhotos';
+import { Navbar,Nav,NavDropdown} from 'react-bootstrap'
 
 
 

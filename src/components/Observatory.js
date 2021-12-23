@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import GoogleMapReact from 'google-map-react';
 import LocationMarker from './LocationMarker';
 import ObservatoryInfo from './ObservatoryInfo';
-import { Modal } from 'react-bootstrap';
+
 
 
 
@@ -32,20 +32,13 @@ const Observatory = ({center, zoom}) => {
 
     ];
 
+    const [observatoryInfo, setObservatoryInfo] = useState(null);
 
     const observatoryLocations = ObservatoriesList.map((observatory, index) =>{
-        return <LocationMarker key={index} lat={observatory.coordinates.lat} lng={observatory.coordinates.lng}/>
+        return <LocationMarker key={index} lat={observatory.coordinates.lat} lng={observatory.coordinates.lng} onClick={() => setObservatoryInfo({name:observatory.name, link:observatory.link, instagram:observatory.instagram})}/>
     });
 
-    const [isHovering, setIsHovering] = useState(false);
-
-    const handleMouseOver = () => {
-        setIsHovering(true);
-    };
-
-    const handleMouseOut = () => {
-        setIsHovering(false);
-    }
+    
 
     
  
@@ -57,10 +50,15 @@ const Observatory = ({center, zoom}) => {
             >
                 <div>
                 {observatoryLocations}
+                {observatoryInfo &&<ObservatoryInfo info={observatoryInfo}/>}
+
               
                 </div>
+               
           
               </GoogleMapReact>
+
+              
               
                 
                  
