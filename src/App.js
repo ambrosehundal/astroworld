@@ -60,13 +60,14 @@ class App extends Component {
                                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                                 <Navbar.Collapse id="basic-navbar-nav">
                                     <Nav className="mr-auto">
-                                    <Nav.Link> <Link to="/observatories">Observatories</Link> </Nav.Link>
+                                   
                                     <NavDropdown title="Pictures" id="basic-nav-dropdown">
                                         
                                     <NavDropdown.Item> <Link to="/photos/mars">Mars</Link></NavDropdown.Item>
                                         <NavDropdown.Item ><Link to="/photos/apod">Picture of the day</Link></NavDropdown.Item>
                                         <NavDropdown.Item ><Link to="/photos/earth">Earth</Link></NavDropdown.Item>
                                     </NavDropdown>
+                                    <Nav.Link> <Link to="/observatories">Observatories</Link> </Nav.Link>
                                     </Nav>
                                    
                                 </Navbar.Collapse>

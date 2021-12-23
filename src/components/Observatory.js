@@ -8,10 +8,46 @@ import { Modal } from 'react-bootstrap';
 
 const Observatory = ({center, zoom}) => {
 
-    const [show, setModal] = useState(false);
+    const ObservatoriesList = [
+        {
+            "name" : "Lick Observatory",
+            "link" : "https://www.lickobservatory.org/",
+            "coordinates": {
+                "lat" : 37.341566516139295,
+                "lng" : -121.64294238827338
+            },
+            "instagram": "https://www.instagram.com/lickobservatory/"
+        },
 
-    const showModal = () => setModal(true);
-    const hideModal = () => setModal(false);
+        {
+            "name" : "Mauna Kea Observatory",
+            "link" : "https://www.maunakeaobservatories.org/",
+            "coordinates": {
+                "lat" : 19.823010278768677,
+                "lng" : -155.4693918782168,
+            },
+            "instagram": null
+
+        }
+
+    ];
+
+
+    const observatoryLocations = ObservatoriesList.map((observatory, index) =>{
+        return <LocationMarker key={index} lat={observatory.coordinates.lat} lng={observatory.coordinates.lng}/>
+    });
+
+    const [isHovering, setIsHovering] = useState(false);
+
+    const handleMouseOver = () => {
+        setIsHovering(true);
+    };
+
+    const handleMouseOut = () => {
+        setIsHovering(false);
+    }
+
+    
  
     return (
         <div style={{ height: '100vh', width: '100%' }}>
@@ -19,18 +55,10 @@ const Observatory = ({center, zoom}) => {
             defaultCenter={center}
             defaultZoom={zoom}
             >
-                <div onClick={showModal}>
-                <LocationMarker lat={37.341566516139295} lng={-121.64294238827338}/>
+                <div>
+                {observatoryLocations}
+              
                 </div>
-    <Modal show={show}>
-
-        <Modal.Header>
-          <Modal.Title>Lick Observatory</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>The hallmark of Bay Area, home of the Great Refractor</Modal.Body>
-      
-    </Modal>
-
           
               </GoogleMapReact>
               
