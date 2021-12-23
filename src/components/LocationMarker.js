@@ -1,16 +1,12 @@
 import React from 'react';
 import {Icon} from '@iconify/react';
-import ObservatoryInfo from './ObservatoryInfo';
 import telescopeIcon from '@iconify/icons-mdi/telescope';
 
 
-const LocationMarker = ({latitude, longitude, handleMouseOver}) => {
-
-    
-    
+const LocationMarker = ({latitude, longitude, onClick}) => {
 
     return(
-        <div className="location-icon" onMouseOver={handleMouseOver}>
+        <div className="location-icon" onMouseEnter={onClick}>
         <Icon icon="mdi:telescope"/>
     </div>
 

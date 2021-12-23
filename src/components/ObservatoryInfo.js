@@ -1,10 +1,13 @@
 import React from "react";
 
 
-const ObservatoryInfo = () => {
+const ObservatoryInfo = ({info}) => {
     return (
         <div className="location-info">
-            <h2>Lick Observatory</h2>
+            <h2>{info.name}</h2>
+            <p>{info.link}</p>
+            <p>{info.instagram}</p>
+           
             <ul>
             </ul>
         </div>
