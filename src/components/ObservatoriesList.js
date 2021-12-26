@@ -27,8 +27,6 @@ const ObservatoriesList = () => {
 
     ];
 
-    const [observatoryInfo, setObservatoryInfo] = useState(null);
-
     const observatoryLocations = ObservatoriesList.map((observatory, index) =>{
         let observatoryInfo = {
             "name": observatory.name,
@@ -36,7 +34,7 @@ const ObservatoriesList = () => {
             "instagram": observatory.instagram
 
         };
-        return <LocationMarker key={index} lat={observatory.coordinates.lat} lng={observatory.coordinates.lng}  info={observatoryInfo}/>
+        return <LocationMarker key={index} lat={observatory.coordinates.lat} lng={observatory.coordinates.lng} info={observatoryInfo}/>
     });
 
     return observatoryLocations;
