@@ -59,6 +59,7 @@
 
 .location-info{
   background-color: white;
+  border: 4px solid black;
 }
 
 @media (prefers-reduced-motion: no-preference) {
