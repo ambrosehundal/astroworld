@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import GoogleMapReact from 'google-map-react';
-import LocationMarker from './LocationMarker';
+import ObservatoryHeader from './ObservatoryHeader';
 import ObservatoriesList from './ObservatoriesList';
 
 
@@ -17,7 +17,16 @@ const Observatory = ({center, zoom}) => {
     
  
     return (
-        <div style={{ height: '100vh', width: '100%' }}>
+
+        <div className="container-fluid">
+
+            <div className="row">
+                <div className="col-md-1">
+
+                </div>
+                <div className="col-md-10">
+                <div style={{ height: '100vh', width: '100%' }}>
+            <ObservatoryHeader/>
             <GoogleMapReact bootstrapURLKeys={{key: ''}}
             defaultCenter={center}
             defaultZoom={zoom}
@@ -40,6 +49,15 @@ const Observatory = ({center, zoom}) => {
                   
               
         </div>
+                    
+                </div>
+                <div className="col-md-1">
+                    
+                </div>
+            </div>
+        </div>
+      
+      
     )
 }
 
