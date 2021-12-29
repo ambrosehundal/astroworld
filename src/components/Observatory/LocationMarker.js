@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {Icon} from '@iconify/react';
 import telescopeIcon from '@iconify/icons-mdi/telescope';
 import ObservatoryInfo from './ObservatoryInfo';
+import Popup from 'reactjs-popup';
 import Observatory from './Observatory';
 
 
@@ -14,20 +15,28 @@ const LocationMarker = ({latitude, longitude, onClick, info}) => {
 
         <div className="row">
 
-        <div className="col-md-2">
+        <div className="col-md-12">
 
-        </div>
-        <div className="col-md-8">
         
-        <div className="location-icon" onMouseEnter={() => setObservatoryInfo(true)} onMouseLeave={() => setObservatoryInfo(false)}>
-        <Icon icon="mdi:telescope"/>
-        {observatoryInfo && <ObservatoryInfo info={info}/>}
-       
-    </div>
+        <Popup
+        key={`tp-${i}`}
+        trigger={
+            <div className="location-icon" onMouseEnter={() => setObservatoryInfo(true)} onMouseLeave={() => setObservatoryInfo(false)}>
+            <Icon lat={latitude} lng={longitude} icon="mdi:telescope"/>
+          
+           
+            </div>
+        }
+        position={position}
+        on={['hover']}
+        arrow={position !== 'center center'}
+      >
+          <ObservatoryInfo info={info}/>
+      </Popup>
+        
+        
             
-        </div>
-        <div className="col-md-2">
-            
+        
         </div>
         </div>
        
