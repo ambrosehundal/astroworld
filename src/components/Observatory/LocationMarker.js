@@ -6,9 +6,7 @@ import Popup from 'reactjs-popup';
 import Observatory from './Observatory';
 
 
-const LocationMarker = ({latitude, longitude, onClick, info}) => {
-
-    const [observatoryInfo, setObservatoryInfo] = useState(false);
+const LocationMarker = ({lat, lng, info}) => {
 
     return(
         <div className="container">
@@ -19,17 +17,14 @@ const LocationMarker = ({latitude, longitude, onClick, info}) => {
 
         
         <Popup
-        key={`tp-${i}`}
         trigger={
-            <div className="location-icon" onMouseEnter={() => setObservatoryInfo(true)} onMouseLeave={() => setObservatoryInfo(false)}>
-            <Icon lat={latitude} lng={longitude} icon="mdi:telescope"/>
-          
-           
+            <div className="location-icon">
+            <Icon  icon="mdi:telescope"/>
             </div>
         }
-        position={position}
+        position={'left top'}
         on={['hover']}
-        arrow={position !== 'center center'}
+        
       >
           <ObservatoryInfo info={info}/>
       </Popup>
