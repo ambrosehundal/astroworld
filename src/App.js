@@ -1,12 +1,11 @@
 
 import './App.css';
-import Observatory from './components/Observatory';
+import Observatory from './components/Observatory/Observatory';
 import TwitterTimeline from './components/TwitterTimelines';
 import Mars from './components/Mars';
 import Background from './components/Background';
 import DateInput from './components/DateInput';
 import PictureOfTheDay from './components/PictureOfTheDay';
-import EarthPictures from './components/EarthPictures';
 import React, { Component } from 'react';
 import moment from "moment";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
@@ -87,7 +86,6 @@ class App extends Component {
               </Route>
 
               <Route path='/photos/earth'>
-                <EarthPictures/>
               </Route>
 
               <Route path='/observatories'>
