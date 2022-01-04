@@ -6,7 +6,7 @@ import Popup from 'reactjs-popup';
 import Observatory from './Observatory';
 
 
-const LocationMarker = ({lat, lng, info}) => {
+const ObservatoryLocation = ({lat, lng, info}) => {
 
     return(
         <div className="container">
@@ -47,4 +47,4 @@ const LocationMarker = ({lat, lng, info}) => {
 
 
 
-export default LocationMarker;
+export default ObservatoryLocation;

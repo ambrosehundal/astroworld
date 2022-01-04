@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import GoogleMapReact from 'google-map-react';
 import ObservatoryHeader from './ObservatoryHeader';
-import LocationMarker from './LocationMarker';
+import ObservatoryLocation from './ObservatoryLocation';
 
 
 
@@ -38,7 +38,7 @@ const Observatory = ({center, zoom}) => {
             "instagram": observatory.instagram
 
         };
-        return <LocationMarker key={index} lat={observatory.coordinates.lat} lng={observatory.coordinates.lng} info={observatoryInfo}/>
+        return <ObservatoryLocation key={index} lat={observatory.coordinates.lat} lng={observatory.coordinates.lng} info={observatoryInfo}/>
     });
 
 
