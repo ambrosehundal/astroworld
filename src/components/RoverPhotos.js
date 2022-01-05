@@ -1,11 +1,14 @@
 import React from "react";
-import { propTypes } from "react-bootstrap/esm/Image";
 
 
 const RoverPhotos = props => {
 
 
     if(props.photos) {
+
+        if(props.photos.length === 0){
+            return(<h3>No Pictures found for this rover at this camera</h3>);
+        }
         return( 
         <div className="container">
         <div className="row">
@@ -27,7 +30,7 @@ const RoverPhotos = props => {
         )
     }
     
-    return (<h2>No pictures found for this camera</h2>)
+    return (<h2>Error encountered fetching images. Please try again.</h2>)
 };
 
 
