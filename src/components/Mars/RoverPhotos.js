@@ -4,7 +4,7 @@ import React from "react";
 const RoverPhotos = props => {
 
 
-    if(props.photos) {
+    if(props.photos){
 
         if(props.photos.length === 0){
             return(<h3>No Pictures found for this rover at this camera</h3>);

@@ -28,13 +28,13 @@ const handle = props => {
 const Mars = props => {
 
 
-    const [rover, setRover] = useState("Curiosity");
+    const [rover, setRover] = useState("opportunity");
 
     const[sol, setSol] = useState(100);
 
     const[photos, setPhotos] = useState([]);
     
-    const[camera, setCamera] = useState("");
+    const[camera, setCamera] = useState("NAVCAM");
 
     const CuriosityCameras = ['FHAZ', 'RHAZ', 'MAST', 'CHEMCAM', 'MAHLI', 'MARDI', 'NAVCAM'];
 
