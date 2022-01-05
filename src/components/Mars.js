@@ -33,7 +33,7 @@ const Mars = props => {
     const[sol, setSol] = useState(100);
 
     const[photos, setPhotos] = useState([]);
-
+    
     const[camera, setCamera] = useState("");
 
     const CuriosityCameras = ['FHAZ', 'RHAZ', 'MAST', 'CHEMCAM', 'MAHLI', 'MARDI', 'NAVCAM'];
@@ -63,7 +63,6 @@ const getRoverPhotos = (evt) => {
   let marsRover = rover;
   let roverCameraType = camera;
   let solValue = sol;
-  console.log(solValue);
   fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/${marsRover}/photos?sol=800&page=1&camera=${roverCameraType}&api_key=`)
   .then(response => response.json())
   .then(json => setPhotos(json.photos))
