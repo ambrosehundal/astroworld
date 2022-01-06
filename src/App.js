@@ -6,6 +6,7 @@ import Mars from './components/Mars/Mars';
 import Background from './components/Home/Background';
 import DateInput from './components/PictureOfTheDay/DateInput';
 import PictureOfTheDay from './components/PictureOfTheDay/PictureOfTheDay';
+import NASAImages from './components/NASA/NASAImages';
 import React, { Component } from 'react';
 import moment from "moment";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
@@ -63,6 +64,7 @@ class App extends Component {
                                     <NavDropdown.Item> <Link to="/photos/mars">Mars</Link></NavDropdown.Item>
                                         <NavDropdown.Item ><Link to="/photos/apod">Picture of the day</Link></NavDropdown.Item>
                                         <NavDropdown.Item ><Link to="/photos/earth">Earth</Link></NavDropdown.Item>
+                                        <NavDropdown.Item ><Link to="/photos/nasa">NASA Images</Link></NavDropdown.Item>
                                     </NavDropdown>
                                     <Nav.Link> <Link to="/observatories">Observatories</Link> </Nav.Link>
                                     </Nav>
@@ -85,8 +87,11 @@ class App extends Component {
                 <Mars/>
               </Route>
 
-              <Route path='/photos/earth'>
+              <Route path='/photos/nasa'>
+                <NASAImages/>
               </Route>
+
+             
 
               <Route path='/observatories'>
                 <Observatory/>

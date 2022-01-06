@@ -4,7 +4,6 @@ import Slider, { SliderTooltip } from 'rc-slider';
 import 'rc-slider/assets/index.css';
 import 'rc-tooltip/assets/bootstrap.css';
 import RoverPhotos from './RoverPhotos';
-import '../App.css';
 
 const { Handle } = Slider;
 
