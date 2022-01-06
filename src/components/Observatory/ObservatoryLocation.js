@@ -1,9 +1,9 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {Icon} from '@iconify/react';
 import telescopeIcon from '@iconify/icons-mdi/telescope';
 import ObservatoryInfo from './ObservatoryInfo';
 import Popup from 'reactjs-popup';
-import Observatory from './Observatory';
+
 
 
 const ObservatoryLocation = ({lat, lng, info}) => {
