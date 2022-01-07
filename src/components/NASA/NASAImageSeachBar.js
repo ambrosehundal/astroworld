@@ -1,15 +1,13 @@
 import React from "react";
 
-
-
-const NASAImages = () => {
+const NASAImageSearchBar = () => {
     return (
         <div className="container">
         <h1>NASA Image Library</h1>
         
         </div>
     )
+
 }
 
-
-export default NASAImages;
+export default NASAImageSearchBar;
