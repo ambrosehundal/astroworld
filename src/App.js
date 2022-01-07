@@ -6,12 +6,13 @@ import Mars from './components/Mars/Mars';
 import Background from './components/Home/Background';
 import DateInput from './components/PictureOfTheDay/DateInput';
 import PictureOfTheDay from './components/PictureOfTheDay/PictureOfTheDay';
-import NASAImages from './components/NASA/NASAImages';
+import NASAImages from './components/NASA/NASAImageLibrary';
 import React, { Component } from 'react';
 import moment from "moment";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.css';
 import { Navbar,Nav,NavDropdown} from 'react-bootstrap'
+import NASAImageLibrary from './components/NASA/NASAImageLibrary';
 
 
 
@@ -88,7 +89,7 @@ class App extends Component {
               </Route>
 
               <Route path='/photos/nasa'>
-                <NASAImages/>
+                <NASAImageLibrary/>
               </Route>
 
              
