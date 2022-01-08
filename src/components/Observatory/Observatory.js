@@ -42,8 +42,6 @@ const Observatory = ({center, zoom}) => {
     });
 
 
-    console.log(observatoryLocations);
-
     
 
     
