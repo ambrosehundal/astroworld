@@ -4,10 +4,13 @@ const NASAImageSearchBar = () => {
 
   const [searchQuery, setSearchQuery] = useState(null);
 
-  const getNASAImages = (evt) => {
-    fetch(`"https://images-api.nasa.gov/search
-    ?q=${searchQuery}`)
+  const [searchResults, setResults] = useState(null);
+
+  const getNASAImages = (searchValue) => {
+    fetch(`https://images-api.nasa.gov/search?q=${searchValue}&page=1`).then(response => setResults(response));
   }
+
+  console.log(searchResults);
 
     return (
         <div className="container">
@@ -16,8 +19,8 @@ const NASAImageSearchBar = () => {
         type="text"
         placeholder="Search"
         value={null}
-        onClick={null}
-      />
+        onChange={e => getNASAImages(e.target.value)}
+        />
         
         </div>
     )
