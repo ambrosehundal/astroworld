@@ -8,7 +8,6 @@ const NASAImageLibrary = () => {
     return (
         <div>
         <NASAImageSearchBar/>
-        <NASAImageSearchResults/>
         </div>
         
     )

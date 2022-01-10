@@ -11,19 +11,16 @@ const NASAImageSearchBar = () => {
 
   const getNASAImages = (searchValue) => {
     fetch(`https://images-api.nasa.gov/search?q=${searchValue}&page=1`).then(response => {
-      if(response.status === 400){
+      if(response.status === 200){
+        return response.json();
+      }
+      else if(response.status === 400){
         setResponseMessage("Bad Request. Please try again.");
       }
       else if(response.status >= 500){
         setResponseMessage("API Server Error. Please try again");
       }
-      else if(response.status === 200){
-        setResponseMessage("Successful");
-        setResults(response.json());
-      }
-     
-
-    });
+    }).then(json => setResults(json.collection));
   }
 
     return (
