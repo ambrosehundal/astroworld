@@ -10,7 +10,7 @@ const NASAImageSearchBar = () => {
   const [searchResults, setResults] = useState(null);
 
   const getNASAImages = (searchValue) => {
-    fetch(`https://images-api.nasa.gov/search?q=${searchValue}&page=1`).then(response => {
+    fetch(`https://images-api.nasa.gov/search?q=${searchValue}&page=1&media_type=image`).then(response => {
       if(response.status === 200){
         return response.json();
       }
@@ -20,18 +20,24 @@ const NASAImageSearchBar = () => {
       else if(response.status >= 500){
         setResponseMessage("API Server Error. Please try again");
       }
-    }).then(json => setResults(json.collection));
+    }).then(json => setResults(json.collection.items));
   }
+
+  
 
     return (
         <div className="container">
         <h1>NASA Image Library</h1>
+        
         <input
         type="text"
         placeholder="Search"
         value={null}
         onChange={e => getNASAImages(e.target.value)}
         />
+        
+      
+       
 
         <NASAImageSearchResults images={searchResults}/>
         
