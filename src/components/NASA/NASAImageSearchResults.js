@@ -13,7 +13,7 @@ const NASAImageSearchResults = props => {
 
     }    
     return (
-        <div className="container">
+        <div className="container imageResults">
             <div className="row">
             <div className="col-md-12">
             <div className="row"> 
