@@ -3,8 +3,6 @@ import NASAImageSearchResults from "./NASAImageSearchResults";
 
 const NASAImageSearchBar = () => {
 
-  const [searchQuery, setSearchQuery] = useState(null);
-
   const [responseMessage, setResponseMessage] = useState(null);
 
   const [searchResults, setResults] = useState(null);
@@ -12,10 +10,11 @@ const NASAImageSearchBar = () => {
   const getNASAImages = (searchValue) => {
     fetch(`https://images-api.nasa.gov/search?q=${searchValue}&page=1&media_type=image`).then(response => {
       if(response.status === 200){
+        setResponseMessage("Fetch results successful");
         return response.json();
       }
-      else if(response.status === 400){
-        setResponseMessage("Bad Request. Please try again.");
+      else if(response.status === 400 || response.status === 403){
+        setResponseMessage("Bad Request. Please try again or refresh the page.");
       }
       else if(response.status >= 500){
         setResponseMessage("API Server Error. Please try again");
@@ -46,7 +45,7 @@ const NASAImageSearchBar = () => {
           </div>
 
           <div className="col-md-10">
-           <NASAImageSearchResults images={searchResults}/>
+           <NASAImageSearchResults images={searchResults} apiResponse={responseMessage}/>
           </div>
        
 

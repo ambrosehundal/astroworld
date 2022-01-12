@@ -16,6 +16,10 @@
  
 }
 
+.imageResults{
+  box-shadow: 10px 5px 5px black;
+}
+
 
 .roverPhotos{
   display: inline-block;

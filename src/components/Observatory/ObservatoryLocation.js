@@ -1,6 +1,5 @@
 import React from 'react';
 import {Icon} from '@iconify/react';
-import telescopeIcon from '@iconify/icons-mdi/telescope';
 import ObservatoryInfo from './ObservatoryInfo';
 import Popup from 'reactjs-popup';
 
