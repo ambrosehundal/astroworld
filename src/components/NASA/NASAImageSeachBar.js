@@ -27,6 +27,9 @@ const NASAImageSearchBar = () => {
 
     return (
         <div className="container">
+          <div className="row">
+
+         
         <h1>NASA Image Library</h1>
         
         <input
@@ -35,12 +38,26 @@ const NASAImageSearchBar = () => {
         value={null}
         onChange={e => getNASAImages(e.target.value)}
         />
+        </div>
         
-      
+        <div className="row">
+          <div className="col-md-1">
+
+          </div>
+
+          <div className="col-md-10">
+           <NASAImageSearchResults images={searchResults}/>
+          </div>
        
 
-        <NASAImageSearchResults images={searchResults}/>
-        
+       
+
+        <div className="col-md-1">
+            
+          </div>
+
+        </div>
+       
         </div>
     )
 
