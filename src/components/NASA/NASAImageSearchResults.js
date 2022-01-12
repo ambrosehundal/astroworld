@@ -16,14 +16,21 @@ const NASAImageSearchResults = props => {
         <div className="container">
             <div className="row">
             <div className="col-md-12">
+            <div className="row"> 
                {imageLinks.map(item => 
+                    <div className="col-md-6">
 
-                   <div className="row"> 
+                 
+                  
+                   <img src={item[1]} height="300" weight="300" className="nasaImage"/>
+
                    <h6>{item[0]}</h6>
-                   <img src={item[1]}/>
+
                    </div>
+                 
 
                )}
+              </div>
             </div>
             </div>
         
