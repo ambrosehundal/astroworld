@@ -6,6 +6,7 @@ import Mars from './components/Mars/Mars';
 import Background from './components/Home/Background';
 import DateInput from './components/PictureOfTheDay/DateInput';
 import PictureOfTheDay from './components/PictureOfTheDay/PictureOfTheDay';
+import SpaceNews from './components/Home/SpaceNews';
 import NASAImages from './components/NASA/NASAImageLibrary';
 import React, { Component } from 'react';
 import moment from "moment";
@@ -76,7 +77,7 @@ class App extends Component {
             
             <Switch>
               <Route exact path="/">
-             
+              <SpaceNews />
               <TwitterTimeline/>
               <Background/>
               </Route>
