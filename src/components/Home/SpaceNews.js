@@ -13,23 +13,33 @@ const SpaceNews = () => {
     }, []);
 
     
-    const articleTitles = [];
-    for (const [key, value] of Object.entries(articles)) {
-        articleTitles.push(value.title);
+    const articlesList = [];
 
-                  
+    for (const [key, value] of Object.entries(articles)) {
+        articlesList.push({
+            title: value.title,
+            summary: value.summary,
+            imageUrl: value.imageUrl,
+            siteUrl : value.url
+
+        })
+
+                       
     }
 
-    console.log(articleTitles);
+    const newsArticles = [];
 
-   
+    articlesList.forEach(article => {
+        newsArticles.push([article.title, article.summary]);
+    })
+
 
     return(
         <div className="container">
             <div className="row">
                 <h1>articles </h1>
               
-              {articleTitles[1]}
+                {newsArticles}
               
             </div>
         </div>
