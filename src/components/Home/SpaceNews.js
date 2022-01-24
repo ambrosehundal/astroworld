@@ -3,7 +3,7 @@ import React, {useState, useEffect} from 'react';
 
 const SpaceNews = () => {
 
-    const [articles, setArticles] = useState({});
+    const [articles, setArticles] = useState([]);
 
     useEffect(() => {
         fetch(`https://api.spaceflightnewsapi.net/v3/articles`)
@@ -12,6 +12,7 @@ const SpaceNews = () => {
 
     }, []);
 
+    console.log(articles);
     
     const articlesList = [];
 
@@ -30,7 +31,10 @@ const SpaceNews = () => {
     const newsArticles = [];
 
     articlesList.forEach(article => {
-        newsArticles.push([article.title, article.summary]);
+        let articleInfo = [article.title, article.summary, article.imageUrl];
+        console.log(typeof(articleInfo));
+        newsArticles.push(articleInfo);
+
     })
 
 
@@ -38,8 +42,8 @@ const SpaceNews = () => {
         <div className="container">
             <div className="row">
                 <h1>articles </h1>
-              
-                {newsArticles}
+            
+                {newsArticles.map((item => <div className="col-md-8"><h2>{item[0]}</h2><img src={item[2]} height="300" weight="300"/><p>{item[1]}</p></div>))}
               
             </div>
         </div>
