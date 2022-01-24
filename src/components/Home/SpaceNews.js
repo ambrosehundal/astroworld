@@ -31,7 +31,7 @@ const SpaceNews = () => {
     const newsArticles = [];
 
     articlesList.forEach(article => {
-        let articleInfo = [article.title, article.summary, article.imageUrl];
+        let articleInfo = [article.title, article.summary, article.imageUrl, article.siteUrl];
         console.log(typeof(articleInfo));
         newsArticles.push(articleInfo);
 
@@ -41,9 +41,8 @@ const SpaceNews = () => {
     return(
         <div className="container">
             <div className="row">
-                <h1>articles </h1>
             
-                {newsArticles.map((item => <div className="col-md-8"><h2>{item[0]}</h2><img src={item[2]} height="300" weight="300"/><p>{item[1]}</p></div>))}
+                {newsArticles.map((item => <div className="col-md-8"><h2>{item[0]}</h2><img src={item[2]} height="300" weight="300"/><p><b><a href={item[3]} target="_blank">{item[1]}</a></b></p></div>))}
               
             </div>
         </div>
