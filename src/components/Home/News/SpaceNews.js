@@ -12,7 +12,7 @@ const SpaceNews = () => {
 
     }, []);
 
-    console.log(articles);
+    
     
     const articlesList = [];
 
@@ -41,6 +41,8 @@ const SpaceNews = () => {
     return(
         <div className="container">
             <div className="row">
+                <h2>Everything Astronomy</h2>
+                <p>Learn. Explore. Stay Curious</p>
                 <SpaceNewsArticles newsArticles={newsArticles}/>
             </div>
         </div>
