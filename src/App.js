@@ -1,5 +1,6 @@
 
 import './App.css';
+import { Provider } from 'react-redux';
 import Observatory from './components/Observatory/Observatory';
 import TwitterTimeline from './components/Home/TwitterTimelines';
 import Mars from './components/Mars/Mars';
