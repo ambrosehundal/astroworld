@@ -52,5 +52,6 @@
   "devDependencies": {
     "@iconify/icons-mdi": "^1.1.42",
     "@iconify/react": "^3.1.0"
-  }
+  },
+  "homepage": "https://myastroworld.herokuapp.com/"
 }
