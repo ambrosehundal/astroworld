@@ -23,7 +23,8 @@
     "react-starfield-animation": "^1.0.1",
     "react-twitter-widgets": "^1.10.0",
     "reactjs-popup": "^2.0.5",
-    "web-vitals": "0.2.4"
+    "web-vitals": "0.2.4",
+    "@iconify/react": "^3.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
