@@ -25,6 +25,7 @@
     "react-starfield-animation": "^1.0.1",
     "react-twitter-widgets": "^1.10.0",
     "reactjs-popup": "^2.0.5",
+    "serve": "^13.0.2",
     "web-vitals": "0.2.4"
   },
   "scripts": {
