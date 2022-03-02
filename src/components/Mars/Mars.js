@@ -62,7 +62,7 @@ const getRoverPhotos = (evt) => {
   let marsRover = rover;
   let roverCameraType = camera;
   let solValue = sol;
-  fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/${marsRover}/photos?sol=800&page=1&camera=${roverCameraType}&api_key=brpG7ZJTp8W280XldBgoPiAon7mWqaOORiYGYghh`)
+  fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/${marsRover}/photos?sol=800&page=1&camera=${roverCameraType}&api_key=`)
   .then(response => response.json())
   .then(json => setPhotos(json.photos))
 

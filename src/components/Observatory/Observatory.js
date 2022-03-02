@@ -61,7 +61,7 @@ const Observatory = ({center, zoom}) => {
                 <div className="col-md-10">
                 <div style={{ height: '100vh', width: '100%' }}>
             <ObservatoryHeader/>
-            <GoogleMapReact bootstrapURLKeys={{key: 'AIzaSyBVmgDkFxFJr4m5MJRIPYyhryYJ0WKHGZE'}}
+            <GoogleMapReact bootstrapURLKeys={{key: ''}}
             defaultCenter={center}
             defaultZoom={zoom}
             >
