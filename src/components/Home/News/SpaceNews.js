@@ -41,8 +41,6 @@ const SpaceNews = () => {
     return(
         <div className="container">
             <div className="row">
-                <h2>Everything Astronomy</h2>
-                <p>Learn. Explore. Question. Stay Curious</p>
                 <SpaceNewsArticles newsArticles={newsArticles}/>
             </div>
         </div>

@@ -1,6 +1,6 @@
 
 import './App.css';
-import { Provider } from 'react-redux';
+import { Provider } from 'react-redux'; 
 import Observatory from './components/Observatory/Observatory';
 import TwitterTimeline from './components/Home/TwitterTimelines';
 import Mars from './components/Mars/Mars';
@@ -9,6 +9,7 @@ import DateInput from './components/PictureOfTheDay/DateInput';
 import PictureOfTheDay from './components/PictureOfTheDay/PictureOfTheDay';
 import SpaceNews from './components/Home/News/SpaceNews';
 import NASAImages from './components/NASA/NASAImageLibrary';
+import HomePageHeader from './components/Home/HomePageHeader';
 import React, { Component } from 'react';
 import moment from "moment";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
@@ -32,7 +33,7 @@ class App extends Component {
   };
 
   getPhoto = date => {
-    fetch(`https://api.nasa.gov/planetary/apod?date=${date}&api_key=`)
+    fetch(`https://api.nasa.gov/planetary/apod?date=${date}&api_key=brpG7ZJTp8W280XldBgoPiAon7mWqaOORiYGYghh`)
     .then(response => response.json())
     .then(json => this.setState({ photo:json }))
 
@@ -78,6 +79,7 @@ class App extends Component {
             
             <Switch>
               <Route exact path="/">
+                <HomePageHeader/>
               <SpaceNews />
               <TwitterTimeline/>
               <Background/>
